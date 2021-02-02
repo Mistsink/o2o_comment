@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, f1_score
 from sklearn.model_selection import StratifiedKFold
 
 from task.task3.util.matrix_train import matrix_train
-from task.task3.util.cut import cut_text
+from task.task3.util.cut_text import cut_text
 from task.task3.util.pretreat import Filter
 
 # const key

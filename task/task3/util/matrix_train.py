@@ -3,6 +3,7 @@
 """
 import numpy as np
 
+
 def matrix_train(train_label, train_cut, test_cut, vectorizer):
     """
     利用矩阵进行训练
@@ -16,9 +17,9 @@ def matrix_train(train_label, train_cut, test_cut, vectorizer):
 
     X_train = vectorizer.transform(train_cut).toarray()
     Y_train = np.array(train_label.tolist())
-    print('{}X_train shape -->{}{}\n'.format('-'*10, X_train.shape, '-'*10))
+    print('{}X_train shape -->{}{}\n'.format('-' * 10, X_train.shape, '-' * 10))
 
     X_test = vectorizer.transform(test_cut).toarray()
-    print('{}X_test shape -->{}{}\n'.format('-'*10, X_test.shape, '-'*10))
+    print('{}X_test shape -->{}{}\n'.format('-' * 10, X_test.shape, '-' * 10))
 
     return X_train, Y_train, X_test
