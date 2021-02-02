@@ -9,6 +9,7 @@ numpy = "*"
 torch = "*"
 jieba = "*"
 gensim = "*"
+sklearn = "*"
 
 [dev-packages]
 
