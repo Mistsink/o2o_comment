@@ -1,19 +1,17 @@
-import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer as TFIDF
 from sklearn import svm
 
 from task.task3.util.cut_text import cut_text
 
-# key config
 from task.task3.util.matrix_train import matrix_train
 from task.task3.util.pretreat import Filter
 
+# key config
 KEY_COMMENT = 'comment'
 
 train_text = pd.read_csv('../../data/train.csv', sep='\t')
 test_text = pd.read_csv('../../data/test_new.csv')
-
 
 train_text[KEY_COMMENT] = train_text[KEY_COMMENT].apply(lambda x: Filter(x))
 test_text[KEY_COMMENT] = test_text[KEY_COMMENT].apply(lambda x: Filter(x))
@@ -54,7 +52,6 @@ a = {17, 1753, 722, 1753, 531, 1296, 74, 229, 299, 529,
 
 """
 import re
-
 
 def extractChinese(s):
     pattern = "[\u4e00-\u9fa5]+"  # 中文正则表达式
@@ -120,7 +117,6 @@ r['id'] = svm_pre
 r0 = r[r.id == 0]
 key_word = ['蚊子', '老鼠', '苍蝇', '酸臭']
 
-# key_word2=['蚊子','剩','不新鲜','没熟','老鼠','烂','骚味','苍蝇','虫','臭','想吐','太硬']
 for i in key_word:
     print(r0[r0['comment'].str.contains(i)])
 
@@ -131,11 +127,6 @@ for i in key_word2:
 key_word3 = ['骚味', '苍蝇', '虫', '臭', '想吐', '太硬']
 for i in key_word3:
     print(r0[r0['comment'].str.contains(i)])
-
-
-
-# a = list(a)
-# a.sort()
 
 for i in a:
     svm.loc[i, 'comment'] = [1]
